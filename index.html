@@ -1,0 +1,513 @@
+<html>
+  <head>
+    <base href="https://woodysglassgallery.com/" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Woody's Glass Gallery | Artisan Glassware & Accessories</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary-color: #8b4513;
+        --secondary-color: #d2691e;
+        --accent-color: #4caf50;
+        --background-color: #fff3e0;
+        --text-color: #3a2618;
+      }
+
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        overflow-x: hidden;
+      }
+
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--secondary-color);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--primary-color);
+        border-radius: 6px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: #6b3611;
+      }
+
+      .header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .logo {
+        font-size: 3.2em;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        margin-bottom: 10px;
+        letter-spacing: 2px;
+      }
+
+      .tagline {
+        font-style: italic;
+        color: #fff;
+        margin-bottom: 20px;
+        font-size: 1.2em;
+      }
+
+      .cta-button {
+        background-color: var(--accent-color);
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        font-size: 1.2em;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .cta-button:hover {
+        background-color: #45a049;
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .categories {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        padding: 40px 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .category {
+        background: #ffffff;
+        border-radius: 15px;
+        padding: 20px;
+        margin: 15px;
+        width: 240px;
+        text-align: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        overflow: hidden;
+      }
+
+      .category:hover {
+        transform: translateY(-10px) rotate(2deg);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      }
+
+      .category img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        transition: all 0.3s ease;
+      }
+
+      .category:hover img {
+        transform: scale(1.1);
+      }
+
+      .category h3 {
+        margin: 0;
+        color: var(--primary-color);
+        font-size: 1.6em;
+        transition: all 0.3s ease;
+        font-weight: 600;
+      }
+
+      .category:hover h3 {
+        color: var(--secondary-color);
+      }
+
+      nav {
+        background-color: var(--text-color);
+        padding: 10px 0;
+      }
+
+      nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      nav ul li {
+        margin: 0 15px;
+      }
+
+      nav ul li a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+        font-size: 1.1em;
+      }
+
+      nav ul li a:hover {
+        color: var(--secondary-color);
+      }
+
+      .background-bong {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.05;
+        z-index: 0;
+        pointer-events: none;
+        will-change: transform;
+      }
+
+      footer {
+        background-color: var(--text-color);
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+        position: relative;
+        z-index: 1;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 2.5em;
+        color: var(--primary-color);
+        margin-bottom: 30px;
+        font-weight: 700;
+      }
+
+      .highlighted-items {
+        display: flex;
+        justify-content: space-around;
+        padding: 40px 20px;
+        background-color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 40px;
+      }
+
+      .highlighted-item {
+        width: 30%;
+        text-align: center;
+        transition: all 0.3s ease;
+      }
+
+      .highlighted-item img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .highlighted-item:hover img {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .highlighted-item h3 {
+        margin-top: 15px;
+        color: var(--primary-color);
+        font-size: 1.8em;
+      }
+
+      @media (max-width: 768px) {
+        .logo {
+          font-size: 2.5em;
+        }
+
+        .category,
+        .highlighted-item {
+          width: 100%;
+          max-width: 300px;
+        }
+
+        .highlighted-items {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .highlighted-item {
+          margin-bottom: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo">Woody's Glass Gallery</div>
+      <p class="tagline">
+        Elevating the Art of Glass for Discerning Collectors
+      </p>
+      <button class="cta-button">Explore Collection</button>
+    </header>
+
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Shop</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+
+    <svg
+      class="background-bong"
+      viewBox="0 0 1000 1000"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M500 100 Q 550 250 500 400 T 500 700 T 500 1000"
+        fill="none"
+        stroke="#8b4513"
+        stroke-width="20"
+        opacity="0.2"
+      />
+      <ellipse cx="500" cy="50" rx="100" ry="50" fill="#8b4513" opacity="0.2" />
+      <path
+        d="M400 950 Q 500 1000 600 950 L 600 850 Q 500 800 400 850 Z"
+        fill="#8b4513"
+        opacity="0.2"
+      />
+    </svg>
+
+    <h2 class="section-title">Featured Masterpieces</h2>
+
+    <section class="highlighted-items">
+      <div class="highlighted-item">
+        <img
+          src="featured-water-pipe.jpg"
+          alt="Exquisite hand-blown water pipe with intricate color work"
+          width="300"
+          height="300"
+        />
+        <h3>Artisan Water Pipe</h3>
+      </div>
+      <div class="highlighted-item">
+        <img
+          src="featured-dab-rig.jpg"
+          alt="Innovative dab rig with unique percolation system"
+          width="300"
+          height="300"
+        />
+        <h3>Precision Dab Rig</h3>
+      </div>
+      <div class="highlighted-item">
+        <img
+          src="featured-sculpture.jpg"
+          alt="Abstract glass sculpture with vibrant colors"
+          width="300"
+          height="300"
+        />
+        <h3>Collectible Sculpture</h3>
+      </div>
+    </section>
+
+    <h2 class="section-title">Shop by Categories</h2>
+
+    <section class="categories">
+      <div class="category">
+        <img
+          src="water-pipes.jpg"
+          alt="Intricate water pipe with wooden accents"
+          width="240"
+          height="200"
+        />
+        <h3>Water Pipes</h3>
+      </div>
+      <div class="category">
+        <img
+          src="hand-pipes.jpg"
+          alt="Colorful hand-blown glass pipe"
+          width="240"
+          height="200"
+        />
+        <h3>Hand Pipes</h3>
+      </div>
+      <div class="category">
+        <img
+          src="dab-rigs.jpg"
+          alt="Elaborate dab rig with percolator"
+          width="240"
+          height="200"
+        />
+        <h3>Dab Rigs</h3>
+      </div>
+      <div class="category">
+        <img
+          src="accessories.jpg"
+          alt="Assorted glass accessories including bowls and tools"
+          width="240"
+          height="200"
+        />
+        <h3>Accessories</h3>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2023 Woody's Glass Gallery. All rights reserved.</p>
+      <p>Contact: info@woodysglassgallery.com | Phone: (555) 123-4567</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script>
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.from(".header", {
+        duration: 1.2,
+        y: -60,
+        opacity: 0,
+        ease: "power3.out",
+      });
+      gsap.from("nav", {
+        duration: 0.8,
+        opacity: 0,
+        delay: 0.5,
+        ease: "power2.out",
+      });
+      gsap.from(".section-title", {
+        duration: 0.8,
+        opacity: 0,
+        y: 30,
+        scrollTrigger: {
+          trigger: ".section-title",
+          start: "top 80%",
+        },
+      });
+      gsap.from(".highlighted-item", {
+        duration: 0.8,
+        scale: 0.9,
+        opacity: 0,
+        stagger: 0.2,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: ".highlighted-items",
+          start: "top 70%",
+        },
+      });
+      gsap.from(".category", {
+        duration: 0.8,
+        scale: 0.9,
+        opacity: 0,
+        stagger: 0.2,
+        ease: "back.out(1.7)",
+        scrollTrigger: {
+          trigger: ".categories",
+          start: "top 70%",
+        },
+      });
+
+      gsap.to(".background-bong", {
+        y: "20%",
+        ease: "none",
+        scrollTrigger: {
+          trigger: "body",
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 1,
+        },
+      });
+
+      const ctaButton = document.querySelector(".cta-button");
+      ctaButton.addEventListener("mouseover", () => {
+        gsap.to(ctaButton, { duration: 0.3, scale: 1.1, ease: "power1.out" });
+      });
+
+      ctaButton.addEventListener("mouseout", () => {
+        gsap.to(ctaButton, { duration: 0.3, scale: 1, ease: "power1.out" });
+      });
+
+      const categories = document.querySelectorAll(".category");
+      categories.forEach((category) => {
+        category.addEventListener("mouseenter", () => {
+          gsap.to(category, {
+            duration: 0.3,
+            y: -10,
+            rotation: 2,
+            scale: 1.05,
+            boxShadow: "0 12px 24px rgba(0,0,0,0.2)",
+            ease: "power2.out",
+          });
+          gsap.to(category.querySelector("img"), {
+            duration: 0.3,
+            scale: 1.1,
+            ease: "power2.out",
+          });
+          gsap.to(category.querySelector("h3"), {
+            duration: 0.3,
+            color: "#d2691e",
+            ease: "power2.out",
+          });
+        });
+
+        category.addEventListener("mouseleave", () => {
+          gsap.to(category, {
+            duration: 0.3,
+            y: 0,
+            rotation: 0,
+            scale: 1,
+            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+            ease: "power2.out",
+          });
+          gsap.to(category.querySelector("img"), {
+            duration: 0.3,
+            scale: 1,
+            ease: "power2.out",
+          });
+          gsap.to(category.querySelector("h3"), {
+            duration: 0.3,
+            color: "#8b4513",
+            ease: "power2.out",
+          });
+        });
+      });
+
+      const highlightedItems = document.querySelectorAll(".highlighted-item");
+      highlightedItems.forEach((item) => {
+        item.addEventListener("mouseenter", () => {
+          gsap.to(item.querySelector("img"), {
+            duration: 0.3,
+            scale: 1.05,
+            boxShadow: "0 8px 16px rgba(0,0,0,0.2)",
+            ease: "power2.out",
+          });
+        });
+
+        item.addEventListener("mouseleave", () => {
+          gsap.to(item.querySelector("img"), {
+            duration: 0.3,
+            scale: 1,
+            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+            ease: "power2.out",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
